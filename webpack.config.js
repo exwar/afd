@@ -42,6 +42,10 @@ module.exports = {
         loader: DEBUG ?
           'style-loader!css-loader' :
           ExtractTextPlugin.extract('style', 'css')
+      },
+      {
+        test: /\.(svg|eot|otf|woff|ttf|woff2)/,
+        loader: 'file-loader?name=[name]@[hash].[ext]'
       }
     ]
   },
