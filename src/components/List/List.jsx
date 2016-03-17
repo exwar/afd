@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Glyphicon, Row, Col, ListGroup, ListGroupItem, ButtonGroup, Button } from 'react-bootstrap';
 
 const ListItem = ({ item, onItemSet, onItemRemove }) => {
@@ -15,10 +15,10 @@ const ListItem = ({ item, onItemSet, onItemRemove }) => {
   </span>;
 
   const buttons = <ButtonGroup>
-    <Button bsSize="small" bsStyle="primary" onClick={() => onItemSet()}>
+    <Button bsSize="small" bsStyle="primary" title="Set this range on calendar" onClick={() => onItemSet()}>
       <Glyphicon glyph="calendar" />
     </Button>
-    <Button bsSize="small" bsStyle="danger" onClick={() => onItemRemove()}>
+    <Button bsSize="small" bsStyle="danger" title="Remove this range from list" onClick={() => onItemRemove()}>
       <Glyphicon glyph="remove" />
     </Button>
   </ButtonGroup>;
@@ -29,7 +29,19 @@ const ListItem = ({ item, onItemSet, onItemRemove }) => {
   </ListGroupItem>;
 };
 
+ListItem.propTypes = {
+  item: PropTypes.object.isRequired,
+  onItemSet: PropTypes.func.isRequired,
+  onItemRemove: PropTypes.func.isRequired
+};
+
 class List extends Component {
+  static propTypes = {
+    items: PropTypes.array.isRequired,
+    onItemSet: PropTypes.func.isRequired,
+    onItemRemove: PropTypes.func.isRequired
+  }
+
   render () {
     const { items, onItemSet, onItemRemove } = this.props;
 

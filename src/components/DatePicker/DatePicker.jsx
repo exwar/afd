@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import DateRangePicker from 'react-daterange-picker';
 
 class DatePicker extends Component {
+  static propTypes = {
+    currentRange: PropTypes.object,
+    onSelect: PropTypes.func.isRequired,
+    onAddToList: PropTypes.func.isRequired
+  }
+
   render () {
     const { currentRange, onSelect, onAddToList } = this.props;
     const holderStyles = {

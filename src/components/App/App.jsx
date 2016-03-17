@@ -27,8 +27,6 @@ class App extends Component {
   }
 
   handleItemSet (item) {
-    console.log(item.start.format('LL'));
-
     this.setState({
       currentRange: item
     });
