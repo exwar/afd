@@ -8,7 +8,7 @@ const Header = () => {
         Aussie Farmers Direct <small>code test</small>
       </PageHeader>
     </Col>
-  </Row>
-}
+  </Row>;
+};
 
 export default Header;

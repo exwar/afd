@@ -19,13 +19,13 @@ class DatePicker extends Component {
 
     return <div>
       <Row>
-        <Col md={2} xs={0}></Col>
-        <Col md={8} xs={12} style={holderStyles}>
+        <Col md={1} xs={0}></Col>
+        <Col md={10} xs={12} style={holderStyles}>
           <DateRangePicker
             { ...dateRangePickerProps }
             />
         </Col>
-        <Col md={2} xs={0}></Col>
+        <Col md={1} xs={0}></Col>
       </Row>
       <Row>
         <Col xs={12} style={holderStyles}>

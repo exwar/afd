@@ -40,7 +40,7 @@ class App extends Component {
     const newItems = [
       ...items.slice(0, index),
       ...items.slice(index + 1)
-    ]
+    ];
 
     this.setState({
       items: newItems

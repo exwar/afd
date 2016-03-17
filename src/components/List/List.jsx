@@ -6,13 +6,13 @@ const ListItem = ({ item, onItemSet, onItemRemove }) => {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center'
-  }
+  };
 
   const title = <span>
     { item.start.format('LL') }
     &nbsp;-&nbsp;
     { item.end.format('LL') }
-  </span>
+  </span>;
 
   const buttons = <ButtonGroup>
     <Button bsSize="small" bsStyle="primary" onClick={() => onItemSet()}>
@@ -21,13 +21,13 @@ const ListItem = ({ item, onItemSet, onItemRemove }) => {
     <Button bsSize="small" bsStyle="danger" onClick={() => onItemRemove()}>
       <Glyphicon glyph="remove" />
     </Button>
-  </ButtonGroup>
+  </ButtonGroup>;
 
   return <ListGroupItem style={itemStyles}>
     { title }
     { buttons }
   </ListGroupItem>;
-}
+};
 
 class List extends Component {
   render () {
