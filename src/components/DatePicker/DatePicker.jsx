@@ -1,10 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import DateRangePicker from 'react-daterange-picker';
+import moment from 'moment';
 
 class DatePicker extends Component {
   static propTypes = {
-    currentRange: PropTypes.object,
+    currentRange: PropTypes.string,
     onSelect: PropTypes.func.isRequired,
     onAddToList: PropTypes.func.isRequired
   }
@@ -15,11 +16,14 @@ class DatePicker extends Component {
       textAlign: 'center',
       marginBottom: '2rem'
     };
+
+    const dpRange = currentRange ? moment.range(currentRange) : null;
+    
     const dateRangePickerProps = {
       firstOfWeek: 1,
       numberOfCalendars: 2,
       selectionType: 'range',
-      value: currentRange,
+      value: dpRange,
       onSelect
     };
 

@@ -12,8 +12,10 @@ class App extends Component {
   }
 
   handleSelect (currentRange) {
+    const isoRange = `${currentRange.start.toISOString()}/${currentRange.end.toISOString()}`;
+
     this.setState({
-      currentRange
+      currentRange: isoRange
     });
   }
 
@@ -44,7 +46,6 @@ class App extends Component {
       items: newItems
     });
   }
-
 
   render () {
     const { items, currentRange } = this.state;
