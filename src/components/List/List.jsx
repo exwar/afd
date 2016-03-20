@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { Glyphicon, Row, Col, ListGroup, ListGroupItem, ButtonGroup, Button } from 'react-bootstrap';
 
+import moment from 'moment';
+
 const ListItem = ({ item, onItemSet, onItemRemove }) => {
   const itemStyles = {
     display: 'flex',
@@ -8,10 +10,14 @@ const ListItem = ({ item, onItemSet, onItemRemove }) => {
     alignItems: 'center'
   };
 
+  const [ start, end ] = item.split('/');
+
+  console.log(start,end);
+
   const title = <span>
-    { item.start.format('LL') }
+    { moment(start).format('LL') }
     &nbsp;-&nbsp;
-    { item.end.format('LL') }
+    { moment(end).format('LL') }
   </span>;
 
   const buttons = <ButtonGroup>
@@ -30,7 +36,7 @@ const ListItem = ({ item, onItemSet, onItemRemove }) => {
 };
 
 ListItem.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: PropTypes.string.isRequired,
   onItemSet: PropTypes.func.isRequired,
   onItemRemove: PropTypes.func.isRequired
 };
