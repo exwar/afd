@@ -6,9 +6,26 @@ import DatePicker from '#components/DatePicker/DatePicker.jsx';
 import List from '#components/List/List.jsx';
 
 class App extends Component {
-  state = {
-    items: [],
-    currentRange: null
+  constructor() {
+    super();
+
+    const itemsStorageState = window.localStorage && localStorage.getItem('afdItemsState');
+
+    this.state = {
+      items: itemsStorageState ? JSON.parse(itemsStorageState)['items'] : [],
+      currentRange: null
+    };
+  }
+
+  componentDidUpdate() {
+    const { items } = this.state;
+    const savedObject = {
+      items
+    }
+
+    if (window.localStorage) {
+      localStorage.setItem('afdItemsState', JSON.stringify(savedObject));
+    }
   }
 
   handleSelect (currentRange) {
