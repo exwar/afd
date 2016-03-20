@@ -21,7 +21,7 @@ class App extends Component {
     const { items } = this.state;
     const savedObject = {
       items
-    }
+    };
 
     if (window.localStorage) {
       localStorage.setItem('afdItemsState', JSON.stringify(savedObject));
